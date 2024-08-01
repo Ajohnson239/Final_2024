@@ -188,9 +188,43 @@ options(digits=2)
 ```
 
 
+
+## Effectiveness Confidence Interval `r low`  to `r hi`
+
+
+The COVID-19 effectiveness for gals (females) is shown above. The vaccine is effective if the efficacy rate is higher than 65%. We can conclude that the vaccination is very successful in preventing girls from contracting COVID-19 based on the interval shown above. 
+
+70% or higher is the standard for a vaccine's effectiveness. This vaccination is quite effective at preventing women from contracting COVID-19.
+
+
+
 ## LGBTQ
 
+### Barplot
 
+```{r}
+LGBTQ <-filter(FinalDat, LGBTQ=="gay")
+```
+
+
+```{r}
+dd2 <- LGBTQ %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+The chart above illustrates the relationship between LGBTQ individuals and their likelihood of contracting COVID-19 based on whether they received a vaccination or a placebo.
+
+The bar plot reveals that 19% of LGBTQ individuals received the vaccine while 80% received the placebo. Those who received the placebo had a higher probability of contracting COVID-19 compared to those who were vaccinated.
 
 
 ## Druggies
