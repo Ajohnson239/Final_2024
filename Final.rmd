@@ -349,4 +349,13 @@ hi=(Drugsfish$conf.int[2]/(Drugsfish$conf.int[2] +1))*100
 options(digits=2)
 ```
 
+# Effectiveness Confidence Interval `r low`  to `r hi`
+
+The COVID-19 effectiveness for men is seen above. The vaccine is effective if the efficacy rate is higher than 40%. We can conclude that the vaccine effectively prevents drug users from contracting COVID-19 based on the period shown above. 
+
+60% or higher is the standard for a vaccine's effectiveness. When it comes to preventing drug users from getting COVID-19, this vaccine is very effective.
+
+The approximate effectiveness of the vaccine is indicated by the odds ratio. The odds ratio for drug users is 75, as can be shown above. For drug users, the efficacy confidence interval ranges from 71.42 to 78.22.
+
+
 # Overall Results and Conclusions
