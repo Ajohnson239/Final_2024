@@ -73,6 +73,39 @@ colPerc(table1)
 
 According to the data, 74% of males who received a placebo and 26% who received the vaccine contracted COVID-19. This indicates that men are less likely to contract COVID-19 when they receive the vaccine compared to the placebo. The vaccine proves to be a more effective option than the placebo, as receiving the placebo results in twice the likelihood of contracting COVID-19.
 
+### Inferential 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+Malesfish <- fisher.test(table1)
+Malesfish
+```
+
+
+The results from Fisher's Exact test should be carefully considered in light of these findings. The p-value reported is 2.2e-16, which is exceptionally small. This tiny value suggests that the observed outcomes are highly unlikely to have occurred by chance.
+
+The null hypothesis posits that sex does not influence COVID-19 mortality. However, the evidence strongly supports the alternative hypothesis, which suggests a significant relationship between sex and COVID-19 death rates.
+
+
+
+```{r}
+effect <- Malesfish$p.value/(Malesfish$p.value +1)
+effectivenessMales = Malesfish$estimate/(Malesfish$estimate +1)*100
+print(effectivenessMales)
+```
+
+```{r}
+low=(Malesfish$conf.int[1]/(Malesfish$conf.int[1] +1))*100
+hi=(Malesfish$conf.int[2]/(Malesfish$conf.int[2] +1))*100
+options(digits=2)
+```
+
+## Effectiveness Confidence Interval `r low`  to `r hi`
+
+The efficacy of the COVID-19 vaccine for men is seen above. The vaccine is effective if the efficacy rate is higher than 50%. We can conclude that the vaccine is unsuccessful in preventing men from contracting COVID-19 based on the interval shown above. 
+
+The approximate effectiveness of the vaccine is indicated by the odds ratio. As can be seen above, the men' odds ratio is 74. For the males, the effectiveness confidence interval is hi 78.32 to low 68,84. 
 
 ## Females
 ### Barplot
