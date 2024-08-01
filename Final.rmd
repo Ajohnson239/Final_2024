@@ -241,6 +241,21 @@ The results show that 20% of LGBTQ participants who received the vaccine contrac
 There is a 3.2:1 likelihood of contracting COVID-19 when receiving the placebo. Individuals who received the vaccine and identified as LGBTQ were three times less likely to contract COVID-19 compared to those who received the placebo.
 
 
+### Inferential 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+LGBTQfish <- fisher.test(table1)
+LGBTQfish
+```
+
+The p-value displayed above is extremely small, at 2e-06. This is a really little amount. This number suggests that these results are not likely to have occurred by coincidence.
+
+The null hypothesis states that there is no relationship between sex and COVID-19-related mortality. The overwhelming evidence that sex does affect people's death rates points to the alternative theory, which holds that there is a link between LGBTQ and COVID-19 deaths.
+
+
+
 
 ## Druggies
 
