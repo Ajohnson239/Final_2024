@@ -320,4 +320,33 @@ colPerc(table1)
 
 The percentages of drug users who contracted COVID-19 after receiving the vaccine and a placebo are displayed in these numerical results.
 Thirty-three percent of drug users who received the vaccination also contacted COVID-19. About 67% of patients who received merely a placebo also had COVID-19. It is evident that the COVID-19 vaccine works to protect drug users from COVID-19, hence receiving this vaccination is advised. There is a 1:2 chance of contracting COVID-19 while receiving the vaccination. The risk of contracting COVID-19 was halved among drug users who received the vaccine compared to those who received a placebo.
+
+# Inferential 
+
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+Drugsfish <- fisher.test(table1)
+Drugsfish
+```
+
+There is a 0 p-value. Given the tiny to none quantity, it may be concluded that these results are unlikely to be the result of chance.
+
+The results of the Fishers' Exact Test show that the odds ratio was 3, meaning that drug users who received the vaccine had a roughly 40-50% lower chance of contracting Covid-19 than those who received a placebo.
+
+The alternative is accepted and the null hypothesis is rejected. The medication works well to lower drug users' risk of contracting COVID-19.
+
+```{r}
+effect <- Drugsfish$p.value/(Drugsfish$p.value +1)
+effectivenessDrugs = Drugsfish$estimate/(Drugsfish$estimate +1)*100
+print(effectivenessDrugs)
+```
+
+```{r}
+low=(Drugsfish$conf.int[1]/(Drugsfish$conf.int[1] +1))*100
+hi=(Drugsfish$conf.int[2]/(Drugsfish$conf.int[2] +1))*100
+options(digits=2)
+```
+
 # Overall Results and Conclusions
