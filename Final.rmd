@@ -310,4 +310,14 @@ The bar plot shows that approximately 51% of respondents who reported drug use a
 
 There are two plots The first plot has the x-axis representing infection status (whether participants have COVID-19), and the y-axis shows the count of individuals who contracted the disease versus those who did not.The second plot features the left two bars representing all individuals with COVID-19. The x-axis indicates COVID-19 status, while the y-axis displays the percentage of patients who contracted the disease after receiving either the vaccine or placebo, rather than the total number of cases.
 
+# Numerical results
+
+```{r}
+table1 <- xtabs(~infected + treatment, data= Drugs)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The percentages of drug users who contracted COVID-19 after receiving the vaccine and a placebo are displayed in these numerical results.
+Thirty-three percent of drug users who received the vaccination also contacted COVID-19. About 67% of patients who received merely a placebo also had COVID-19. It is evident that the COVID-19 vaccine works to protect drug users from COVID-19, hence receiving this vaccination is advised. There is a 1:2 chance of contracting COVID-19 while receiving the vaccination. The risk of contracting COVID-19 was halved among drug users who received the vaccine compared to those who received a placebo.
 # Overall Results and Conclusions
