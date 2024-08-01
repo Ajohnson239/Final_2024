@@ -157,7 +157,39 @@ The percentages of girls, or women, who contracted COVID-19 after receiving the 
 35% of the gals (women) who had the vaccination and developed COVID-19 were infected, as roughly shown by the earlier plots. 65% of the girls who received the placebo also had COVID-19. Girls are indeed effectively shielded from contracting COVID-19 by the immunization.
 
 For girls receiving the vaccine, the risk of contracting COVID-19 is 1:1. The risk of contracting COVID-19 was halved for the girls who received the vaccine compared to the placebo. group.
+
+
+### Inferential 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+Femalesfish <- fisher.test(table1)
+Femalesfish
+```
+
+The output of the Fisher's Exact test should be carefully examined among all of these findings. At 0.95, the p-value 2e-08 shown above is incredibly tiny. This is a minuscule amount. This number indicates that the results are unlikely to be the result of chance, and the alternative hypothesis can be accepted in place of the null hypothesis.
+
+
+According to the Fishers' Exact Test, the odds ratio was 1.9. Women who received the medication had an approximate 0.32-fold increased risk of contracting COVID-19 compared to those who received a placebo
+
+
+
+```{r}
+effect <- Femalesfish$p.value/(Femalesfish$p.value +1)
+effectivenessFemales = Femalesfish$estimate/(Femalesfish$estimate +1)*100
+print(effectivenessFemales)
+```
+
+```{r}
+low=(Femalesfish$conf.int[1]/(Femalesfish$conf.int[1] +1))*100
+hi=(Femalesfish$conf.int[2]/(Femalesfish$conf.int[2] +1))*100
+options(digits=2)
+```
+
+
 ## LGBTQ
+
 
 
 
