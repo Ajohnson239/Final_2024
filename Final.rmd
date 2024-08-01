@@ -359,3 +359,7 @@ The approximate effectiveness of the vaccine is indicated by the odds ratio. The
 
 
 # Overall Results and Conclusions
+Men at 74%, women 65%, LGBTQ 80% and Drug 78.5% were not effectively protected from contracting the disease by the COVID-19 Placebo. The Males at 20%, Women 35% and LGBTQ 20% vaccination were effective due they have lower chance for protection against COVID-19. 
+
+The drugusers that took the vaccine 79.7% or placebo 78.5 were half as likely to get covid-19.
+If you are a LGBTQ it is not recommended to receive the vaccine. However, if you are a drug user, the vaccine  and placebo were reported to have been effective for COVID-19 becuse you still have a great rate of get the disease, so ir do make different to the vaccine. 
