@@ -268,7 +268,46 @@ hi=(LGBTQfish$conf.int[2]/(LGBTQfish$conf.int[2] +1))*100
 options(digits=2)
 ```
 
+## Effectiveness Confidence Interval `r low`  to `r hi`
+
+The data above shows the COVID-19 vaccine's effectiveness for LGBTQ(gay). If the vaccination's efficacy rate is more than 50%, it is considered effective. Based on the time frame above, we may conclude that the vaccine is not effective in protecting LGBTQ(gay) from acquiring COVID-19. 
+
+The odds ratio shows how effective the vaccination is, roughly. The odds ratio for LGBTQ(gay) is 81, as can be shown above. The effectiveness confidence interval for men is hi 89.87 to low 68.99.
+
+
+
 ## Druggies
 
+# Barplot
+
+```{r}
+Drugs <-filter(FinalDat, DrugUser=="no")
+```
+
+```{r}
+Drugs <-select(Drugs,-DrugUser)
+```
+
+
+```{r}
+dd2 <-  Drugs %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+This figure illustrates the connection between drug use and the likelihood of contracting COVID-19 based on whether individuals received the vaccine or a placebo.
+
+The bar plot shows that approximately 51% of respondents who reported drug use and received the vaccine contracted COVID-19, while nearly 49% of drug users who received the placebo also contracted the virus. This indicates a 1:1 chance of contracting COVID-19 with the vaccine. However, the risk of contracting COVID-19 was halved for drug users who received the vaccine compared to those who received the placebo.
+
+There are two plots The first plot has the x-axis representing infection status (whether participants have COVID-19), and the y-axis shows the count of individuals who contracted the disease versus those who did not.The second plot features the left two bars representing all individuals with COVID-19. The x-axis indicates COVID-19 status, while the y-axis displays the percentage of patients who contracted the disease after receiving either the vaccine or placebo, rather than the total number of cases.
 
 # Overall Results and Conclusions
