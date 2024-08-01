@@ -226,6 +226,21 @@ The chart above illustrates the relationship between LGBTQ individuals and their
 
 The bar plot reveals that 19% of LGBTQ individuals received the vaccine while 80% received the placebo. Those who received the placebo had a higher probability of contracting COVID-19 compared to those who were vaccinated.
 
+### Numerical Results
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=LGBTQ)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The numerical data reveal the percentages of LGBTQ individuals who contracted COVID-19 after receiving either the vaccine or a placebo.
+
+The results show that 20% of LGBTQ participants who received the vaccine contracted COVID-19, while 80% of those who received the placebo did. This indicates that the placebo offers no effective protection against COVID-19 for the LGBTQ population and is not recommended.
+
+There is a 3.2:1 likelihood of contracting COVID-19 when receiving the placebo. Individuals who received the vaccine and identified as LGBTQ were three times less likely to contract COVID-19 compared to those who received the placebo.
+
+
 
 ## Druggies
 
